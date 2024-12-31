@@ -21,7 +21,7 @@ export default tseslint.config(
   pluginJsxA11y.flatConfigs.recommended,
   eslintPluginPrettierRecommended,
   {
-    ignores: ['node_modules', 'dist'],
+    ignores: ['node_modules', 'dist', 'src/components/ui', 'src/hooks'],
   },
   {
     files: ['**/*.{ts,tsx,astro}'],
