@@ -14,7 +14,9 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
   ...pluginTailwind.configs['flat/recommended'],
-  /// @ts-expect-error
+  /// @ts-expect-error https://github.com/jsx-eslint/eslint-plugin-react/issues/3838
+  pluginReact.configs.flat.recommended,
+  /// @ts-expect-error https://github.com/jsx-eslint/eslint-plugin-react/issues/3838
   pluginReact.configs.flat['jsx-runtime'],
   pluginJsxA11y.flatConfigs.recommended,
   eslintPluginPrettierRecommended,
