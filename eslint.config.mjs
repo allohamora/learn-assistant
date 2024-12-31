@@ -21,7 +21,7 @@ export default tseslint.config(
   pluginJsxA11y.flatConfigs.recommended,
   eslintPluginPrettierRecommended,
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{ts,tsx,astro}'],
     ignores: ['node_modules', 'dist'],
     languageOptions: {
       globals: {
@@ -29,6 +29,11 @@ export default tseslint.config(
       },
       parserOptions: {
         project: true,
+      },
+    },
+    settings: {
+      react: {
+        version: 'detect',
       },
     },
     plugins: {
