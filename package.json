@@ -7,7 +7,14 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prepare": "husky",
+    "format": "prettier . --check",
+    "format:fix": "prettier --write .",
+    "lint": "eslint \"**/*.{ts,tsx}\"",
+    "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
+    "csslint": "stylelint \"src/**/*.{css,ts,tsx}\"",
+    "csslint:fix": "stylelint \"src/**/*.{css,ts,tsx}\" --fix"
   },
   "dependencies": {
     "@astrojs/react": "^4.1.2",
@@ -34,5 +41,32 @@
     "type": "git",
     "url": "git+https://github.com/allohamora/learn-assistant.git"
   },
-  "homepage": "https://github.com/allohamora/learn-assistant#readme"
+  "homepage": "https://github.com/allohamora/learn-assistant#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/js": "^9.17.0",
+    "@types/eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-beautiful-sort": "^3.0.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.3",
+    "globals": "^15.14.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
+    "postcss-styled-syntax": "^0.7.0",
+    "prettier": "^3.4.2",
+    "stylelint": "^16.12.0",
+    "stylelint-config-clean-order": "^6.1.0",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-prettier": "^5.0.2",
+    "typescript-eslint": "^8.19.0"
+  },
+  "lint-staged": {
+    "*.{js,cjs,mjs,json,yml,md}": "prettier --write",
+    "*.{css,ts,tsx}": "stylelint --fix",
+    "*.{ts,tsx}": "eslint --fix"
+  }
 }
