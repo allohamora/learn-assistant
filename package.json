@@ -1,0 +1,25 @@
+{
+  "name": "learn-assistant",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.1.1"
+  },
+  "engines": {
+    "node": ">=v20.17.0",
+    "npm": ">=10.8.2"
+  },
+  "packageManager": "npm@10.8.2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allohamora/learn-assistant.git"
+  },
+  "homepage": "https://github.com/allohamora/learn-assistant#readme"
+}
