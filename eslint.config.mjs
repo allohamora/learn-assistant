@@ -53,6 +53,7 @@ export default tseslint.config(
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-misused-promises': 'warn',
       '@typescript-eslint/no-deprecated': 'error',
+      'react/no-unknown-property': ['error', { ignore: ['class'] }],
       'beautiful-sort/import': [
         'error',
         {
