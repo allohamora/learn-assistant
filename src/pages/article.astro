@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/layout.astro';
+import { getArticle } from '../service/article.service.ts';
+import { marked } from 'marked';
+import 'github-markdown-css';
+
+export const prerender = false;
+
+const topic = Astro.url.searchParams.get('topic');
+
+if (!topic) {
+  return Astro.redirect('/');
+}
+
+const article = await getArticle(topic);
+---
+
+<Layout title={topic}>
+  <article class="markdown-body p-5" set:html={marked(article)} />
+</Layout>

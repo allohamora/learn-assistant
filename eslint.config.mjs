@@ -51,9 +51,8 @@ export default tseslint.config(
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-misused-promises': 'warn',
       '@typescript-eslint/no-deprecated': 'error',
-      'react/no-unknown-property': ['error', { ignore: ['class'] }],
+      'react/no-unknown-property': ['error', { ignore: ['class', 'set:html'] }],
       'beautiful-sort/import': [
         'error',
         {
