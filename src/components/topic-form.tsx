@@ -5,7 +5,8 @@ import { z } from 'zod';
 import { toast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Textarea } from '@/components/ui/textarea';
+import { ArrowUp } from 'lucide-react';
+import { Input } from './ui/input';
 
 const FormSchema = z.object({
   topic: z.string().min(3).max(1000),
@@ -14,6 +15,10 @@ const FormSchema = z.object({
 export const TopicForm = () => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
+    mode: 'onSubmit',
+    defaultValues: {
+      topic: '',
+    },
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
@@ -28,27 +33,35 @@ export const TopicForm = () => {
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="m-auto max-w-[500px]">
-        <FormField
-          control={form.control}
-          name="topic"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-2xl">Topic</FormLabel>
-              <FormControl>
-                <Textarea placeholder="What do you want to know?" className="resize-none" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <div className="flex justify-end">
-          <Button className="ml-auto mt-2" type="submit">
-            Submit
-          </Button>
-        </div>
-      </form>
-    </Form>
+    <div className="flex h-screen w-full items-center justify-center">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-[500px]">
+          <FormField
+            control={form.control}
+            name="topic"
+            render={({ field }) => (
+              <FormItem>
+                <div className="space-y-5">
+                  <FormLabel className="block text-center text-3xl">Topic</FormLabel>
+                  <div className="flex space-x-2 rounded-md">
+                    <FormControl>
+                      <Input
+                        placeholder="What do you want to know?"
+                        className="min-w-[300px] resize-none ring-0"
+                        {...field}
+                      />
+                    </FormControl>
+                    <Button className="rounded-md" variant="outline" size="icon" type="submit">
+                      <ArrowUp />
+                    </Button>
+                  </div>
+                </div>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </form>
+      </Form>
+    </div>
   );
 };
